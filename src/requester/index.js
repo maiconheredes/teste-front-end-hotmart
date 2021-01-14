@@ -6,6 +6,9 @@ const requester = async (services = {}, options = {}) => {
                 return [null, response];
             })
             .catch(error => {
+                if (error === '') {
+                    return [error, null];
+                }
                 return [error, null];
             });
     } catch (error) {
