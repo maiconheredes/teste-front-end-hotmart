@@ -66,4 +66,5 @@ export const ReimbursementBoxStyled = styled.div`
     background-image: linear-gradient(to right, #00d7ce, #00c5fc);
     border-radius: 0.25rem;
     padding: 1rem;
+    color: white;
 `;
