@@ -5,7 +5,8 @@ import {
     TopBar,
     SideBar,
     ContentBar,
-    ReimbursementBox
+    ReimbursementBox,
+    TimelineList
 } from '.';
 
 import {
@@ -13,9 +14,9 @@ import {
 } from '../styles';
 
 
-export const Dashboard = () => {
+export const Dashboard = ({ children }) => {
     Dashboard.propTypes = {
-
+        children: PropTypes.any,
     };
 
     return <>
@@ -25,7 +26,8 @@ export const Dashboard = () => {
         <MainStyled>
             <SideBar />
             <ContentBar>
-                <ReimbursementBox/>
+                <ReimbursementBox />
+                <TimelineList />
             </ContentBar>
         </MainStyled>
         <footer></footer>

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useReducer, useState } from 'react';
+import React, { useCallback, useEffect, useReducer } from 'react';
 import { useSelector } from 'react-redux';
 import { Col, Row } from 'react-bootstrap';
 import PropType from 'prop-types';
@@ -10,10 +10,8 @@ import requester from '../requester';
 import {
     PercentageByInteger,
     ConvertDate,
-    Select
+    SelectAnalysts
 } from '.';
-import { copyObj } from '../utils';
-import AnalystsState from '../states/analysts.state';
 import ObjectsReducer from '../reducers/objects.reducer';
 import {
     UPDATE_OBJECT
@@ -26,7 +24,6 @@ export const ReimbursementBox = ({ children }) => {
     };
 
     const [header, controlHeader] = useReducer(ObjectsReducer, {});
-    const [analysts, setAnalysts] = useState([]);
 
     const {
         header: headerService,
@@ -51,17 +48,6 @@ export const ReimbursementBox = ({ children }) => {
     useEffect(() => {
         findHeader();
     }, [findHeader]);
-
-    useEffect(() => {
-        let newAnalysts = copyObj(AnalystsState);
-
-        newAnalysts.unshift({
-            label: '-- Informe o analista --',
-            value: '',
-        });
-
-        setAnalysts(newAnalysts);
-    }, []);
 
     return <ReimbursementBoxStyled>
         <Row>
@@ -121,7 +107,7 @@ export const ReimbursementBox = ({ children }) => {
                 </Row>}
             </Col>
             <Col lg={5} style={{ borderLeft: '3px solid #fafbfc' }}>
-                <Select label={'Atribuir analista'} options={analysts} />
+                <SelectAnalysts />
                 {header.costCenters?.length > 0 && <>
                     <p><strong>Centro de custo</strong></p>
                     {header.costCenters.map(costCenter => <p key={costCenter.id}>
