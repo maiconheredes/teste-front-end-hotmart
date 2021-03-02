@@ -92,3 +92,12 @@ export const TimelineIconStyled = styled.span`
     height: 50px;
     width: 50px;
 `;
+
+export const TimelineSubtitleStyled = styled.p`
+    color: lightgrey;
+`;
+
+export const TimelineNotesStyled = styled.p`
+    color: gray;
+    font-size: 0.8rem;
+`;
