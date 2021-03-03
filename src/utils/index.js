@@ -11,3 +11,11 @@ export const copyObj = (obj) => {
 
     return newObj;
 };
+
+export const coinSignal = (coin) => {
+    return coin.declared > coin.received ? '-' : '';
+};
+
+export const coinResult = (coin) => {
+    return Math.abs(coin.declared - coin.received);
+};
