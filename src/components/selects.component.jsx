@@ -23,18 +23,12 @@ export const SelectAnalysts = ({ children }) => {
     const analyst = useSelector(state => state.AnalystReducer);
 
     useEffect(() => {
-        let newAnalysts = copyObj(AnalystsState);
-
-        newAnalysts.unshift({
-            label: '-- Informe o analista --',
-            value: '',
-        });
-
-        setAnalysts(newAnalysts);
+        setAnalysts(copyObj(AnalystsState));
     }, []);
     
     return <Select 
         label={'Atribuir analista'} options={analysts} value={analyst}
         onChange={event => dispatch(updateAnalyst(event.target.value))}
+        first={'-- Informe o analista --'}
     />
 };

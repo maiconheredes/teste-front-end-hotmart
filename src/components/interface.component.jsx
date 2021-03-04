@@ -12,6 +12,7 @@ import {
 import {
     MainStyled
 } from '../styles';
+import { AddExpenseModal } from './modals.component';
 
 
 export const Dashboard = ({ children }) => {
@@ -27,6 +28,7 @@ export const Dashboard = ({ children }) => {
             <SideBar />
             <ContentBar>
                 <ReimbursementBox />
+                <AddExpenseModal />
                 <TimelineList />
             </ContentBar>
         </MainStyled>

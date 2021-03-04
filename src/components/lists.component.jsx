@@ -73,10 +73,10 @@ export const SidebarList = ({ children }) => {
             <SidebarHighlightStyled children={'Extrato'} />
             <hr/>
             <Form.Row>
-                <Col xs={8}>
+                <Col xs={7}>
                     <p>{'Descrição'}</p>
                 </Col>
-                <Col xs={4}>
+                <Col xs={5}>
                     <p>{'Valor'}</p>
                 </Col>
             </Form.Row>
@@ -90,7 +90,7 @@ export const SidebarList = ({ children }) => {
             </Form.Row>
             <Form.Row>
                 <Col>
-                    <TimelineSubtitleStyled children={'Despesas declaradas pelo trooper'} />
+                    <TimelineSubtitleStyled children={'Despesas declaradas pelo trooper'} styled={{marginTop: '-1rem'}} />
                 </Col>
             </Form.Row>
             <Form.Row>
@@ -103,7 +103,7 @@ export const SidebarList = ({ children }) => {
             </Form.Row>
             <Form.Row>
                 <Col>
-                    <TimelineSubtitleStyled children={'Despesas aprovadas pelo finaceiro'} />
+                    <TimelineSubtitleStyled children={'Despesas aprovadas pelo finaceiro'} styled={{marginTop: '-1rem'}} />
                 </Col>
             </Form.Row>
             <Form.Row>
@@ -116,7 +116,7 @@ export const SidebarList = ({ children }) => {
             </Form.Row>
             <Form.Row>
                 <Col>
-                    <TimelineSubtitleStyled children={'Pagamento realizado pelo finaceiro'} />
+                    <TimelineSubtitleStyled children={'Pagamento realizado pelo finaceiro'} styled={{marginTop: '-1rem'}} />
                 </Col>
             </Form.Row>
         </SidebarBoxStyled>)}

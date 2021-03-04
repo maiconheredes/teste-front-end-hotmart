@@ -43,13 +43,11 @@ export const ContentWraperStyled = styled.section`
 `;
 
 export const ContentBarStyled = styled.section`
-    height: calc(100vh - 6rem);
     width: 75%;
     padding: 1rem;
     float: left;
 
     @media (max-width: 991px) {
-        height: initial;
         width: 100%;
     }
 `;
