@@ -19,3 +19,7 @@ export const coinSignal = (coin) => {
 export const coinResult = (coin) => {
     return Math.abs(coin.declared - coin.received);
 };
+
+export const nullOrEmpty = (value) => {
+    return value === null || value === undefined || value === '';
+};

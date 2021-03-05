@@ -13,7 +13,7 @@ const ObjectsReducer = (state, action) => {
         case UPDATE_OBJECT_PROPERTY:
             return {
                 ...state,
-                ...action.payload,
+                [action.payload.field]: action.payload.value,
             };
         default:
             return state;

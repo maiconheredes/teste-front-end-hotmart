@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form } from 'react-bootstrap';
+import { Form, InputGroup } from 'react-bootstrap';
+import CurrencyInput from 'react-currency-input';
 
 
 export const Select = ({ id, label, options = [], first = null, ...rest }) => {
@@ -22,14 +23,45 @@ export const Select = ({ id, label, options = [], first = null, ...rest }) => {
     </Form.Group>;
 };
 
-export const Input = ({ id, label, ...rest }) => {
+export const Input = ({ id, label, value, ...rest }) => {
     Input.propTypes = {
         id: PropTypes.string,
         label: PropTypes.string,
+        value: PropTypes.any,
     };
 
     return <Form.Group controlId={id}>
         <Form.Label>{label}</Form.Label>
-        <Form.Control {...rest} placeholder={label} />
+        <Form.Control {...rest} placeholder={label} value={value === null ? '' : value} />
     </Form.Group>;
+};
+
+export const InputMoney = ({
+    label, onChange, onChangeValue, 
+    value, ...rest
+}) => {
+    InputMoney.propTypes = {
+        label: PropTypes.string,
+        onChange: PropTypes.func,
+        onChangeValue: PropTypes.func,
+        value: PropTypes.any,
+    };
+
+    return <Form.Group>
+        {label && <label>{label}</label>}
+        <InputGroup>
+            <InputGroup.Prepend>
+                <InputGroup.Text>{'$'}</InputGroup.Text>
+            </InputGroup.Prepend>
+            <CurrencyInput
+                {...rest}
+                onChange={onChangeValue}
+                onChangeEvent={onChange}
+                className={'form-control'}
+                decimalSeparator={','}
+                thousandSeparator={'.'}
+                value={value ? value : 0}
+            />
+        </InputGroup>
+    </Form.Group>
 };
