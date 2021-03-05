@@ -5,17 +5,19 @@ import {
     TopBar,
     SideBar,
     ContentBar,
-    ReimbursementBox
+    ReimbursementBox,
+    TimelineList
 } from '.';
 
 import {
     MainStyled
 } from '../styles';
+import { AddExpenseModal } from './modals.component';
 
 
-export const Dashboard = () => {
+export const Dashboard = ({ children }) => {
     Dashboard.propTypes = {
-
+        children: PropTypes.any,
     };
 
     return <>
@@ -25,7 +27,9 @@ export const Dashboard = () => {
         <MainStyled>
             <SideBar />
             <ContentBar>
-                <ReimbursementBox/>
+                <ReimbursementBox />
+                <AddExpenseModal />
+                <TimelineList />
             </ContentBar>
         </MainStyled>
         <footer></footer>

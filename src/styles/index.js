@@ -30,14 +30,38 @@ export const SideBarStyled = styled.section`
     }
 `;
 
-export const ContentBarStyled = styled.section`
+export const ContentWraperStyled = styled.section`
     height: calc(100vh - 6rem);
     width: calc(100vw - 3rem);
-    padding: 1rem;
+    overflow-y: scroll;
     float: left;
 
     @media (max-width: 991px) {
         height: initial;
+        width: 100%;
+    }
+`;
+
+export const ContentBarStyled = styled.section`
+    width: 75%;
+    padding: 1rem;
+    float: left;
+
+    @media (max-width: 991px) {
+        width: 100%;
+    }
+`;
+
+export const RightSidebarStyled = styled.section`
+    box-shadow: 0px 0px 3px;
+    background-color: white;
+    border-bottom-left-radius: 0.25rem;
+    width: 25%;
+    padding: 1rem;
+    float: left;
+
+    @media (max-width: 991px) {
+        border-radius: 0;
         width: 100%;
     }
 `;
@@ -65,5 +89,51 @@ export const BreadcrumbBarStyled = styled.section`
 export const ReimbursementBoxStyled = styled.div`
     background-image: linear-gradient(to right, #00d7ce, #00c5fc);
     border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    padding: 2rem;
+    color: white;
+`;
+
+export const TimelineBoxStyled = styled.div`
+    box-shadow: 0px 0px 5px lightgrey;
+    background-color: white;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    padding: 2rem;
+`;
+
+export const SidebarBoxStyled = styled.div`
+    box-shadow: 0px 0px 5px lightgrey;
+    background-color: white;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
     padding: 1rem;
+`;
+
+export const TimelineIconStyled = styled.span`
+    background-color: #f0f3f7;
+    vertical-align: middle;
+    color: lightsteelblue;
+    display: inline-block;
+    margin-bottom: 1rem;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+    padding-top: 1rem;
+    height: 50px;
+    width: 50px;
+`;
+
+export const TimelineSubtitleStyled = styled.p`
+    color: lightgrey;
+`;
+
+export const SidebarHighlightStyled = styled.p`
+    color: darkblue;
+    font-weight: bolder;
+`;
+
+export const TimelineNotesStyled = styled.p`
+    color: gray;
+    font-size: 0.8rem;
 `;

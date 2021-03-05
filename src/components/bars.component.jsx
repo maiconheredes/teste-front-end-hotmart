@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container } from 'react-bootstrap';
+import { Alert, Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
-import { 
-    TopBarStyled, 
-    SideBarStyled, 
+import {
+    TopBarStyled,
+    SideBarStyled,
     ContentBarStyled,
-    BreadcrumbBarStyled
+    BreadcrumbBarStyled,
+    RightSidebarStyled,
+    ContentWraperStyled,
 } from '../styles';
+import {
+    SidebarList
+} from '.';
 
 
 export const TopBar = ({ children }) => {
@@ -32,6 +37,20 @@ export const SideBar = () => {
     </SideBarStyled>;
 };
 
+export const RightSideBar = () => {
+    RightSideBar.propTypes = {
+
+    };
+
+    return <RightSidebarStyled>
+        <Alert variant={'success'} className={'text-center'}>
+            <span style={{color: 'gray'}}>{'Status'}</span>
+            <h2>{'Concluído'}</h2>
+        </Alert>
+        <SidebarList />
+    </RightSidebarStyled>
+};
+
 export const ContentBar = ({ children }) => {
     ContentBar.propTypes = {
         children: PropTypes.any,
@@ -41,6 +60,9 @@ export const ContentBar = ({ children }) => {
         <BreadcrumbBarStyled>
             <div>Painel<span>/</span>Solicitação<span>/</span><strong>Solicitação</strong></div>
         </BreadcrumbBarStyled>
-        <ContentBarStyled children={children} />
+        <ContentWraperStyled>
+            <ContentBarStyled children={children} />
+            <RightSideBar />
+        </ContentWraperStyled>
     </>;
 };
