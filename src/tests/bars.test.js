@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
+
 import { Provider } from 'react-redux';
-import { shallow } from 'enzyme';
+import { render } from 'enzyme';
 
 import {
   ContentBar, SidebarList
@@ -10,19 +10,20 @@ import Store from '../store';
 
 describe('bars components test', () => {
   it('test rendering content in breadcrumb', () => {
-    const { getAllByText } = render(<Provider store={Store}>
+    const wrapper = render(<Provider store={Store}>
       <ContentBar />
     </Provider>);
 
-    expect(getAllByText(/Solicitação/i)).toHaveLength;
+    expect(wrapper.find('div').first().text())
+      .toEqual(expect.stringContaining('Solicitação'));
   });
 
-  it('test rendering content in sidebar list', () => {
-    const wrapper = shallow(<Provider store={Store}>
+  it('test rendering content in sidebar list', async () => {
+    const wrapper = render(<Provider store={Store}>
       <SidebarList />
     </Provider>);
 
     expect(wrapper.find('h3').first().text())
-      .toEqual(expect.stringContaining('123213'));
+      .toEqual(expect.stringContaining('123213'))
   });
 });
